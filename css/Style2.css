@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+}
+
+.swiper-button-prev-unique svg {
+  transform: translateY(30%);
+}
+.swiper-button-next-unique svg {
+  transform: translateY(30%);
+}
+
+.swiper-button-prev-unique {
+  background-color: #f54747a2;
+  height: 3rem;
+  width: 5rem;
+  border-radius: 10px;
+  transform: translate(-80%, 270%);
+}
+.swiper-button-next-unique {
+  background-color: #f54747bd;
+  height: 3rem;
+  width: 5rem;
+  border-radius: 10px;
+  transform: translate(80%, 270%);
+}
