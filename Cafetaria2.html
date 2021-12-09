@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Cafetaria 2</title>
+    <title>Cafetaria 1</title>
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/Style2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
   </head>
   <body class="sb-nav-fixed">
@@ -116,118 +117,312 @@
                   <h3 class="fw-bold">Makanan</h3>
                   <br />
                   <div class="menu-makanan row gap-4">
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Makan 1 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/nasigorengbiasa.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Nasi Goreng <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Makan 1 akhir -->
+                    <!-- Menu Makan 2 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/ayam goreng.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Ayam Goreng <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Makan 2 akhir -->
+                    <!-- Menu Makan 3 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/ayam bakar.png" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Ayam Bakar <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Makan 3 akhir -->
+                    <!-- Menu Makan 4 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/mie goreng.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Mie Goreng <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Makan 4 akhir -->
+                    <!-- Menu Makan 5 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/bakso malang.JPG" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Bakso <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Makan 5 akhir -->
+                    <!-- Menu Makan 6 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/mie ayam.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Mie Ayam <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Makan 6 akhir -->
+                    <!-- Menu Makan 7 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/perkedel + sayur.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Nasi + Lauk <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Makan 7 akhir -->
+                    <!-- Menu Makan 8 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/pecel.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Pecel <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
+                    <!-- Menu Makan 8 akhir -->
+                    <!-- Menu Makan 9 -->
+                    <div class="card p-0" style="width: 15rem">
+                      <img src="assets/img/sate.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Sate <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Menu Makan 1 akhir -->
                   </div>
                 </div>
                 <br /><br /><br /><br />
@@ -237,62 +432,142 @@
                   <h3 class="fw-bold">Minuman</h3>
                   <br />
                   <div class="menu-Minuman row gap-4">
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Minuman 1 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/es teh.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Ice Tea <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Minuman 1 akhir -->
+                    <!-- Menu Minuman 2 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/jus jeruk.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Jus Jeruk <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Minuman 2 akhir -->
+                    <!-- Menu Minuman 3 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/milkshake coklat.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Milkshake Coklat <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
-                    <!-- Rumah Makan 4 -->
+                    <!-- Menu Minuman 3 akhir -->
+                    <!-- Menu Minuman 4 -->
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
+                      <img src="assets/img/milkshake vanila.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 4</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="button-click row">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                        <div class="judulmenu d-flex">
+                          <div class="col-10 text-start">
+                            <h5 class="card-title fw-bold">
+                              Milkshake Vanilla <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                            </h5>
+                          </div>
+                          <div class="col-2 text-end">
+                            <button id="btns1" class="btnfav" onclick="toggle1()"><i class="bi bi-heart-fill"></i></button>
+                          </div>
+                        </div>
+                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <div class="formcheck">
+                          <form action="">
+                            <div class="form-group">
+                              <div class="jumlhproduk row">
+                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
+                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
+                              </div>
+                            </div>
+                            <div class="button-click row pt-3 ps-2">
+                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                              ></a>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- Rumah Makan 4 akhir -->
+                    <!-- Menu Minuman 4 akhir -->
                   </div>
                 </div>
                 <!-- akhir Minuman -->
@@ -316,5 +591,16 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
+    <script>
+      var btns1 = document.getElementById("btns1");
+
+      function toggle1() {
+        if (btns1.style.color == "red") {
+          btns1.style.color = "grey";
+        } else {
+          btns1.style.color = "red";
+        }
+      }
+    </script>
   </body>
 </html>
