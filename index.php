@@ -6,6 +6,11 @@
     //header("location:../index.php?pesan=belum_login");
     echo "<script>alert('Login First!');document.location='login.php'</script>";
   }
+
+  $user = $_SESSION['username'];
+
+  $pick=mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$user'");
+  $fetch=mysqli_fetch_array($pick);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +33,7 @@
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-danger">
       <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3 fw-bold" href="MainMenu.html">My Canteen</a>
+      <a class="navbar-brand ps-3 fw-bold" href="index.php">My Canteen</a>
       <!-- Sidebar Toggle-->
       <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
       <!-- Navbar Search-->
@@ -45,6 +50,7 @@
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#!">Settings</a></li>
             <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+            <li><a class="dropdown-item" href="add_canten.php">Add Canten</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="#!">Logout</a></li>
           </ul>
@@ -74,7 +80,7 @@
                 </nav>
               </div>
               <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                <div class="sb-naFsettingv-link-icon"><i class="fas fa-book-open"></i></div>
                 Favorite
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
               </a>
@@ -116,7 +122,7 @@
             </div>
           </div>
           <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
+            <div class="small">Logged in as: <?php echo $fetch['username']; ?></div>
             Start Bootstrap
           </div>
         </nav>
@@ -336,17 +342,25 @@
                   </div>
                 </div>
 
+                <?php  
+                  $queryCanten = mysqli_query($koneksi, "SELECT * FROM cafetaria ORDER BY id_cafet DESC") or die (mysqli_error());
+                ?>
+
                 <div class="toko">
                   <br /><br /><br /><br />
                   <h3 class="fw-bold m-0">Canteen</h3>
                   <br /><br />
                   <div class="kantin row gap-4 mx-auto">
                     <!-- Rumah Makan 1 -->
+                    <?php 
+                      while ($fetchCanten = mysqli_fetch_array($queryCanten))
+                      {
+                    ?>
                     <div class="card p-0" style="width: 15rem; height: 22rem">
                       <img src="assets/img/Resto1.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
-                        <h5 class="card-title fw-bold">Cafetaria 1</h5>
-                        <p class="card-text">Menyediakan makanan khas padang dan minuman.</p>
+                        <h5 class="card-title fw-bold"><?php echo $fetchCanten['nama_cafet']; ?></h5>
+                        <p class="card-text"><?php echo $fetchCanten['cafet_desc']; ?></p>
                         <div class="button-click row pt-4 ps-2">
                           <a href="Cafetaria1.html" class="btn btn-click"
                             >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
@@ -354,9 +368,12 @@
                         </div>
                       </div>
                     </div>
+                    <?php 
+                      }
+                    ?>
                     <!-- Rumah Makan 1 akhir -->
                     <!-- Rumah Makan 2 -->
-                    <div class="card p-0" style="width: 15rem; height: 22rem">
+                    <!-- <div class="card p-0" style="width: 15rem; height: 22rem">
                       <img src="assets/img/Resto2.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <h5 class="card-title fw-bold">Cafetaria 2</h5>
@@ -367,10 +384,10 @@
                           ></a>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Rumah Makan 2 akhir -->
                     <!-- Rumah Makan 3 -->
-                    <div class="card p-0" style="width: 15rem; height: 22rem">
+                    <!-- <div class="card p-0" style="width: 15rem; height: 22rem">
                       <img src="assets/img/Resto3.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <h5 class="card-title fw-bold">Cafetaria 3</h5>
@@ -381,10 +398,10 @@
                           ></a>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Rumah Makan 3 akhir -->
                     <!-- Rumah Makan 4 -->
-                    <div class="card p-0" style="width: 15rem; height: 22rem">
+                    <!-- <div class="card p-0" style="width: 15rem; height: 22rem">
                       <img src="assets/img/Resto4.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <h5 class="card-title fw-bold">Cafetaria 4</h5>
@@ -395,7 +412,7 @@
                           ></a>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Rumah Makan 4 akhir -->
                   </div>
                 </div>

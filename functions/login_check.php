@@ -19,7 +19,7 @@
 			$_SESSION['username'] = $username;
 			$_SESSION['status'] = "login";
 
-			echo "<script>alert('Login Successful');document.location='../index.html'</script>";
+			echo "<script>alert('Login Successful');document.location='../index.php'</script>";
 			//header("location:../index.html");
 		}else{
 			echo "<script>alert('Invalid Username or Password');document.location='../login.php'</script>";
