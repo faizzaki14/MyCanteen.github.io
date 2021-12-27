@@ -1,3 +1,13 @@
+<?php
+  include "config.php";
+  session_start();
+
+  if($_SESSION['status']!="login"){
+    //header("location:../index.php?pesan=belum_login");
+    echo "<script>alert('Login First!');document.location='login.php'</script>";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

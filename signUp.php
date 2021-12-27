@@ -1,3 +1,8 @@
+<?php
+  include "config.php";
+  session_start();
+  $_SESSION['status'] = "logout";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +30,8 @@
               <h2>Register</h2>
             </div>
             <div class="row">
-              <form control="" class="form-group">
+              
+              <form method="post" class="form-group" action="functions/signup_process.php">
                 <div class="row signup-item">
                   <input type="text" name="FullName" id="FullName" class="form__input" placeholder="Full Name" />
                 </div>
@@ -38,7 +44,6 @@
                 <div class="row signup-item">
                   <input type="text" name="username" id="username" class="form__input" placeholder="Username" />
                 </div>
-
                 <div class="row signup-item">
                   <!-- <span class="fa fa-lock"></span> -->
                   <input type="password" name="password" id="password" class="form__input" placeholder="Password" />
@@ -46,11 +51,12 @@
                 <center>
                   <div class="login d-flex flex-column justify-content-center">
                     <div class="row justify-content-center">
-                      <input type="submit" value="Register" class="btn" />
+                      <input type="submit" value="Register" name="register" class="btn" />
                     </div>
                   </div>
                 </center>
               </form>
+
             </div>
 
             <div class="row">
