@@ -2,15 +2,27 @@
   include "config.php";
   session_start();
 
-  if($_SESSION['status']!="login"){
+  if ($_SESSION['status']!="login"){
     //header("location:../index.php?pesan=belum_login");
     echo "<script>alert('Login First!');document.location='login.php'</script>";
+
+  } else  if ((time() - $_SESSION['last_login_timestamp']) > 18000) { // 18000 seconds = 5 * 3600    
+    //header("location:functions/logout.php");  
+    $_SESSION['status'] = "logout";
+    echo "<script>alert('Session Timed out!');document.location='login.php'</script>";
+
+  } else {
+    $user = $_SESSION['username'];
+
+    $pick=mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$user'");
+
+    $fetch=mysqli_fetch_array($pick);
+
   }
 
-  $user = $_SESSION['username'];
-
-  $pick=mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$user'");
-  $fetch=mysqli_fetch_array($pick);
+  if ($fetch['role'] != "user") {
+    echo "<script>alert('You are logged as an Canteen owner');document.location='index_owner.php'</script>";
+  }
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +45,7 @@
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-danger">
       <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3 fw-bold" href="index.php">My Canteen</a>
+      <a class="navbar-brand ps-3 fw-bold" href="index.php">WELCOME \(￣︶￣*\))</a>
       <!-- Sidebar Toggle-->
       <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
       <!-- Navbar Search-->
@@ -52,7 +64,7 @@
             <li><a class="dropdown-item" href="#!">Activity Log</a></li>
             <li><a class="dropdown-item" href="add_canten.php">Add Canten</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#!">Logout</a></li>
+            <li><a class="dropdown-item" href="functions/logout.php">Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -63,7 +75,7 @@
           <div class="sb-sidenav-menu">
             <div class="nav">
               <div class="sb-sidenav-menu-heading">Home</div>
-              <a class="nav-link" href="MainMenu.html">
+              <a class="nav-link" href="index.php">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 HomePage
               </a>
@@ -81,7 +93,7 @@
               </div>
               <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                 <div class="sb-naFsettingv-link-icon"><i class="fas fa-book-open"></i></div>
-                Favorite
+                 Favorite
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
               </a>
               <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
@@ -122,8 +134,8 @@
             </div>
           </div>
           <div class="sb-sidenav-footer">
-            <div class="small">Logged in as: <?php echo $fetch['username']; ?></div>
-            Start Bootstrap
+            <div class="small">Logged in as: <?php echo $fetch['username']; ?></div> 
+            <div class="small">Role: <?php echo $fetch['role']; ?></div>            
           </div>
         </nav>
       </div>
@@ -362,9 +374,12 @@
                         <h5 class="card-title fw-bold"><?php echo $fetchCanten['nama_cafet']; ?></h5>
                         <p class="card-text"><?php echo $fetchCanten['cafet_desc']; ?></p>
                         <div class="button-click row pt-4 ps-2">
-                          <a href="Cafetaria1.html" class="btn btn-click"
-                            >Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span
-                          ></a>
+                          <!-- <a href="Cafetaria_info.php<?php $id=$fetchCanten['id_cafet']; ?>" class="btn btn-click"> -->
+                          <?php 
+                            echo "<a href='Cafetaria_info.php?id_c=$fetchCanten[id_cafet]' class='btn btn-click'>";
+                          ?>
+                            Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span>
+                          </a>
                         </div>
                       </div>
                     </div>

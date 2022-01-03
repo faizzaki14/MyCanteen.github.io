@@ -48,10 +48,14 @@
                   <!-- <span class="fa fa-lock"></span> -->
                   <input type="password" name="password" id="password" class="form__input" placeholder="Password" />
                 </div>
+                <div class="row signup-item">
+                  <!-- <span class="fa fa-lock"></span> -->
+                  <input type="password" name="confirm_password" id="password" class="form__input" placeholder="Confirm Password" />
+                </div>
                 <center>
                   <div class="login d-flex flex-column justify-content-center">
                     <div class="row justify-content-center">
-                      <input type="submit" value="Register" name="register" class="btn" />
+                      <input type="submit" value="Register" name="registerUser" class="btn" />
                     </div>
                   </div>
                 </center>
@@ -60,7 +64,7 @@
             </div>
 
             <div class="row">
-              <p>already have an account? <a href="index.html">Login</a></p>
+              <p>already have an account? <a href="login.php">Login</a></p>
             </div>
             <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
               <div class="border-bottom w-100 ml-5"></div>

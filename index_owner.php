@@ -76,10 +76,10 @@
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
           <div class="sb-sidenav-menu">
             <div class="nav">
-              <div class="sb-sidenav-menu-heading">Home</div>
-              <a class="nav-link" href="index_owner.php">
+              <div class="sb-sidenav-menu-heading">Canteen</div>
+              <a class="nav-link" href="add_canten.php">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                HomePage
+                Add New Canteen
               </a>
               <div class="sb-sidenav-menu-heading">Keranjang</div>
               <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -147,23 +147,30 @@
           <div class="container">
             <div class="col-lg-12 col-sm-12 col-md-3 row">
               <div class="row">
-                <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Add Canteen</h3>
-                <div class="col-lg-12 col-sm-12 col-md-3 mt-2 mb-2 p-2 border" id="owned_canten">
-                  <form action="functions/add_canten_process.php" method="post" class="form-group">
-                    <input type="hidden" name="id_owner" value="<?php echo $fetch['id']; ?>">
-                    <div class="form-group">
-                      <label for="cantenName">Canteen Name</label>
-                      <input type="text" class="form-control" id="cantenName" name="cantenName" aria-describedby="emailHelp" placeholder="Enter Canteen Name">
-                      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                    </div>
-                    <div class="form-group">
-                      <label for="cantenDesc">Canteen Description</label>
-                      <textarea class="form-control" id="cantenDesc" name="cantenDesc" rows="3"></textarea>
-                    </div>
-                    <br>
-                    <button type="submit" name="submitAdd" class="btn btn-primary">Submit</button>
-                  </form>
-                </div>                
+                <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Owned Canteen</h3>
+                <!-- <div class="col-lg-12 col-sm-12 col-md-3 mt-2 mb-2 p-2 border" id="owned_canten">
+                  <h2 class="display-4">Display 4</h2>
+                </div> -->
+                <?php
+                  $queryCanten = mysqli_query($koneksi, "SELECT * FROM cafetaria ORDER BY id_cafet DESC") or die (mysqli_error());
+                  
+                  
+                  while ($fetchCanten = mysqli_fetch_array($queryCanten)) {
+                    if ($fetchCanten['id_owner'] == $fetch['id']) {
+
+                ?>
+                <div class="card mt-3">
+                  <h4 class="card-header"><?php echo $fetchCanten['nama_cafet']; ?></h4>
+                  <div class="card-body">                  
+                    <p class="card-text"><?php echo $fetchCanten['cafet_desc']; ?></p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="#" class="btn btn-danger">Go somewhere</a>
+                  </div>
+                </div>
+                <?php
+                    }
+                  }
+                ?>
               </div>
             </div>
           </div>

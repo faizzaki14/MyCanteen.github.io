@@ -45,7 +45,7 @@
         <div class="col-md-8 col-xs-12 col-sm-12 login_form">
           <div class="container-fluid">
             <div class="row pt-2">
-              <h2>Log In</h2>
+              <h2>Log In As Canteen Owners</h2>
             </div>
             <div class="row">
 
@@ -65,7 +65,7 @@
                     </div>
                     <div class="row justify-content-center">
                       <!-- <input type="submit" value="Login Me" class="btn" onclick="window.location.href='MainMenu.html'" /> -->
-                      <input type="submit" name="submit_login_user" value="Login" class="btn"/>
+                      <input type="submit" name="submit_login_owner" value="Login" class="btn"/>
                     </div>
                   </div>
                 </center>
@@ -74,8 +74,8 @@
             </div>
 
             <div class="row">
-              <p class="h5">Don't have an account? <a href="signUp.php">Register Here</a></p>
-              <p class="h4">Canteen Owner?  <a href="login_canten.php">CLick Here</a></p>
+              <p>Don't have an account? <a href="signUp_canten.php">Register Here</a></p>
+              <br>              
             </div>
             <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
               <div class="border-bottom w-100 ml-5"></div>
