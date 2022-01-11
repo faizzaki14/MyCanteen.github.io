@@ -17,8 +17,13 @@
     $fetch=mysqli_fetch_array($pick);
 
     $idc=$_GET['id_c'];
-    $queryC=mysqli_query($koneksi, "SELECT * FROM cafetaria WHERE id_cafet = '$idc'");
+    $queryC=mysqli_query($koneksi, "SELECT * FROM cafetaria WHERE id_owner = '$idc'");
     $fetchc=mysqli_fetch_array($queryC);
+
+    $queryF = mysqli_query($koneksi, "SELECT * FROM menu WHERE id_canteen = '$idc' AND type='food'");
+
+    $queryD = mysqli_query($koneksi, "SELECT * FROM menu WHERE id_canteen = '$idc' AND type='drinks'");
+   
   }
 ?>
 <html lang="en">
@@ -138,9 +143,9 @@
               <div class="row">
                 <div class="menu mx-auto">
                   <div class="container mt-2 mb-2 p-3">
-                    <div class="card" style="width: 100%;">
-                      <img src="assets/img/Resto1.jpg" class="card-img-top" alt="..." style="height: 50%;" />
-                      <div class="card-body">
+                    <div class="card p-3" style="width: 100%;">
+                      <img src="assets/img/Resto1.jpg" class="card-img-top" alt="Card image cap" style="/*height: 50%; width: 50%;*/" />
+                      <div class="card-body m-3">
                         <h5 class="card-title"><?php echo $fetchc['nama_cafet']; ?></h5>
                         <p class="card-text"><?php echo $fetchc['cafet_desc']; ?></p>
                       </div>
@@ -151,20 +156,23 @@
                   <br />
                   <div class="menu-makanan row gap-4">
                     <!-- Menu Makan 1 -->
+                    <?php  
+                      while($fetchF=mysqli_fetch_array($queryF)) {
+                    ?>
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/nasigorengbiasa.jpg" class="card-img-top" alt="..." />
+                      <img src="img/<?php echo $fetchF['img_menu']; ?>" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
                           <div class="col-10 text-start">
                             <h5 class="card-title fw-bold">
-                              Nasi Goreng <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 10.000</p></span>
+                              <?php echo $fetchF['nama_menu']; ?> <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp <?php echo $fetchF['price_menu']; ?></p></span>
                             </h5>
                           </div>
                           <div class="col-2 text-end">
                             <button id="btns1" class="btnfav" onclick="toggle1('btns1')"><i class="bi bi-heart-fill"></i></button>
                           </div>
                         </div>
-                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <p class="card-text pt-2"><?php echo $fetchF['desc_menu']; ?></p>
                         <div class="formcheck">
                           <form action="">
                             <div class="form-group">
@@ -185,7 +193,7 @@
                     </div>
                     <!-- Menu Makan 1 akhir -->
                     <!-- Menu Makan 2 -->
-                    <div class="card p-0" style="width: 15rem">
+                    <!-- <div class="card p-0" style="width: 15rem">
                       <img src="assets/img/ayam goreng.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
@@ -216,10 +224,10 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Menu Makan 2 akhir -->
                     <!-- Menu Makan 3 -->
-                    <div class="card p-0" style="width: 15rem">
+                   <!--  <div class="card p-0" style="width: 15rem">
                       <img src="assets/img/ayam bakar.png" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
@@ -250,10 +258,10 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Menu Makan 3 akhir -->
                     <!-- Menu Makan 4 -->
-                    <div class="card p-0" style="width: 15rem">
+                   <!--  <div class="card p-0" style="width: 15rem">
                       <img src="assets/img/mie goreng.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
@@ -284,10 +292,10 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Menu Makan 4 akhir -->
                     <!-- Menu Makan 5 -->
-                    <div class="card p-0" style="width: 15rem">
+                   <!--  <div class="card p-0" style="width: 15rem">
                       <img src="assets/img/bakso malang.JPG" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
@@ -318,10 +326,10 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Menu Makan 5 akhir -->
                     <!-- Menu Makan 6 -->
-                    <div class="card p-0" style="width: 15rem">
+                    <!-- <div class="card p-0" style="width: 15rem">
                       <img src="assets/img/mie ayam.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
@@ -352,10 +360,10 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Menu Makan 6 akhir -->
                     <!-- Menu Makan 7 -->
-                    <div class="card p-0" style="width: 15rem">
+                    <!-- <div class="card p-0" style="width: 15rem">
                       <img src="assets/img/perkedel + sayur.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
@@ -386,10 +394,10 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Menu Makan 7 akhir -->
                     <!-- Menu Makan 8 -->
-                    <div class="card p-0" style="width: 15rem">
+                   <!--  <div class="card p-0" style="width: 15rem">
                       <img src="assets/img/pecel.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
@@ -420,10 +428,10 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Menu Makan 8 akhir -->
                     <!-- Menu Makan 9 -->
-                    <div class="card p-0" style="width: 15rem">
+                   <!--  <div class="card p-0" style="width: 15rem">
                       <img src="assets/img/sate.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
@@ -454,7 +462,8 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
+                    <?php } ?>
                     <!-- Menu Makan 1 akhir -->
                   </div>
                 </div>
@@ -466,20 +475,23 @@
                   <br />
                   <div class="menu-Minuman row gap-4">
                     <!-- Menu Minuman 1 -->
+                    <?php  
+                      while ( $fetchD=mysqli_fetch_array($queryD)) {
+                    ?>
                     <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/es teh.jpg" class="card-img-top" alt="..." />
+                      <img src="img/<?php echo $fetchD['img_menu']; ?>" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
                           <div class="col-10 text-start">
                             <h5 class="card-title fw-bold">
-                              Ice Tea <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
+                              <?php echo $fetchD['nama_menu']; ?> <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp <?php echo $fetchD['price_menu']; ?></p></span>
                             </h5>
                           </div>
                           <div class="col-2 text-end">
                             <button id="btns10" class="btnfav" onclick="toggle1('btns10')"><i class="bi bi-heart-fill"></i></button>
                           </div>
                         </div>
-                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                        <p class="card-text pt-2"><?php echo $fetchD['desc_menu']; ?></p>
                         <div class="formcheck">
                           <form action="">
                             <div class="form-group">
@@ -498,9 +510,10 @@
                         </div>
                       </div>
                     </div>
+                    <?php } ?>
                     <!-- Menu Minuman 1 akhir -->
                     <!-- Menu Minuman 2 -->
-                    <div class="card p-0" style="width: 15rem">
+                    <!-- <div class="card p-0" style="width: 15rem">
                       <img src="assets/img/jus jeruk.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
@@ -531,10 +544,10 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Menu Minuman 2 akhir -->
                     <!-- Menu Minuman 3 -->
-                    <div class="card p-0" style="width: 15rem">
+                    <!-- <div class="card p-0" style="width: 15rem">
                       <img src="assets/img/milkshake coklat.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
@@ -565,10 +578,10 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Menu Minuman 3 akhir -->
                     <!-- Menu Minuman 4 -->
-                    <div class="card p-0" style="width: 15rem">
+                    <!-- <div class="card p-0" style="width: 15rem">
                       <img src="assets/img/milkshake vanila.jpg" class="card-img-top" alt="..." />
                       <div class="card-body">
                         <div class="judulmenu d-flex">
@@ -599,7 +612,7 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Menu Minuman 4 akhir -->
                   </div>
                 </div>

@@ -13,15 +13,13 @@
 
   } else {
     $user = $_SESSION['username'];
-
     $pick=mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$user'");
-
     $fetch=mysqli_fetch_array($pick);
 
   }
 
   if ($fetch['role'] != "user") {
-    echo "<script>alert('You are logged as an Canteen owner');document.location='index_owner.php'</script>";
+    echo "<script>alert('You are logged as an Canteen owner');document.location='owner/index_owner.php'</script>";
   }
 ?>
 
@@ -143,7 +141,7 @@
         <main class="ps-3">
           <br />
           <div class="container">
-            <div class="col-lg-12 col-sm-12 col-md-3 row">
+            <div class="col-lg-12 col-sm-12 col-md-12 row">
               <div class="row">
                 <div class="bestdeal mx-auto">
                   <h3 class="fw-bold">Best Deal</h3>
@@ -157,25 +155,29 @@
                           </svg>
                         </button>
                       </div>
-                      <div class="swiper">
+                      <div class="swiper">                       
                         <div class="swiper-container">
-                          <div class="swiper-wrapper gap-1" style="display: flex">
-                            <div class="swiper-slide">
-                              <!-- Menu Makan 1 -->
-                              <div class="card p-0">
-                                <img src="assets/img/nasigorengbiasa.jpg" class="card-img-top" alt="..." />
+                          <div class="swiper-wrapper gap-3" style="display: flex">
+                            <!-- Menu Makan 1 --> 
+                            <?php  
+                               $pickMenu = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY id_menu asc") or die (mysqli_error());
+                                while ($fetchMenu=mysqli_fetch_array($pickMenu)) { 
+                            ?>                            
+                            <div class="swiper-slide">                          
+                              <div class="card p-0 mr-3 ml-3" style="width: 20rem;">
+                                <img src="img/<?php echo $fetchMenu['img_menu']; ?>" class="card-img-top" alt="..." />
                                 <div class="card-body">
                                   <div class="judulmenu d-flex">
                                     <div class="col-10 text-start">
                                       <h5 class="card-title fw-bold">
-                                        Nasi Goreng <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 10.000</p></span>
+                                        <?php echo $fetchMenu['nama_menu']; ?> <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp <?php echo $fetchMenu['price_menu']; ?></p></span>
                                       </h5>
                                     </div>
                                     <div class="col-2 text-end">
                                       <button id="btns1" class="btnfav" onclick="toggle1('btns1')"><i class="bi bi-heart-fill"></i></button>
                                     </div>
                                   </div>
-                                  <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
+                                  <p class="card-text pt-2"><?php echo $fetchMenu['nama_menu']; ?></p>
                                   <div class="formcheck">
                                     <form action="">
                                       <div class="button-click row pt-3 ps-2">
@@ -187,11 +189,13 @@
                                     </form>
                                   </div>
                                 </div>
-                              </div>
-                              <!-- Menu Makan 1 akhir -->
+                              </div>                           
                             </div>
-                            <div class="swiper-slide">
+                          <?php } ?>
+                            
+                             <!-- Menu Makan 1 akhir -->                              
                               <!-- Menu Makan 2 -->
+                           <!--  <div class="swiper-slide">                           
                               <div class="card p-0">
                                 <img src="assets/img/mie kuah.jpg" class="card-img-top" alt="..." />
                                 <div class="card-body">
@@ -217,11 +221,11 @@
                                     </form>
                                   </div>
                                 </div>
-                              </div>
-                              <!-- Menu Makan 2 akhir -->
-                            </div>
-                            <div class="swiper-slide">
+                              </div>                             
+                            </div> -->
+                             <!-- Menu Makan 2 akhir -->
                               <!-- Menu Makan 3 -->
+                           <!--  <div class="swiper-slide">                             
                               <div class="card p-0">
                                 <img src="assets/img/mie ayam.jpg" class="card-img-top" alt="..." />
                                 <div class="card-body">
@@ -247,11 +251,11 @@
                                     </form>
                                   </div>
                                 </div>
-                              </div>
-                              <!-- Menu Makan 3 akhir -->
-                            </div>
-                            <div class="swiper-slide">
-                              <!-- Menu Makan 4 -->
+                              </div>                             
+                            </div> -->
+                            <!-- Menu Makan 3 akhir -->
+                             <!-- Menu Makan 4 -->
+                           <!--  <div class="swiper-slide">                             
                               <div class="card p-0">
                                 <img src="assets/img/perkedel + sayur.jpg" class="card-img-top" alt="..." />
                                 <div class="card-body">
@@ -277,11 +281,11 @@
                                     </form>
                                   </div>
                                 </div>
-                              </div>
-                              <!-- Menu Makan 4akhir -->
-                            </div>
-                            <div class="swiper-slide">
-                              <!-- Menu Makan 5 -->
+                              </div>                              
+                            </div> -->
+                            <!-- Menu Makan 4akhir -->
+                            <!-- Menu Makan 5 -->
+                            <!-- <div class="swiper-slide">                             
                               <div class="card p-0">
                                 <img src="assets/img/es teh.jpg" class="card-img-top" alt="..." />
                                 <div class="card-body">
@@ -307,11 +311,11 @@
                                     </form>
                                   </div>
                                 </div>
-                              </div>
-                              <!-- Menu Makan 5 akhir -->
-                            </div>
-                            <div class="swiper-slide">
-                              <!-- Menu Makan 6 -->
+                              </div>                              
+                            </div> -->
+                            <!-- Menu Makan 5 akhir -->
+                            <!-- Menu Makan 6 -->
+                            <!-- <div class="swiper-slide">
                               <div class="card p-0">
                                 <img src="assets/img/jus alpukat.jpg" class="card-img-top" alt="..." />
                                 <div class="card-body">
@@ -337,9 +341,9 @@
                                     </form>
                                   </div>
                                 </div>
-                              </div>
-                              <!-- Menu Makan 6 akhir -->
-                            </div>
+                              </div>                              
+                            </div> -->
+                            <!-- Menu Makan 6 akhir -->
                           </div>
                         </div>
                       </div>
@@ -353,6 +357,38 @@
                     </div>
                   </div>
                 </div>
+
+                 <?php 
+                                $pickMenu = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY id_menu aSC") or die (mysqli_error());
+                                while ($fetchMenu=mysqli_fetch_array($pickMenu)) { 
+                              ?>                              
+                              <div class="card p-0 mt-5 mb-4" style="width: 20rem; margin-left: 2rem;">
+                                <img src="img/<?php echo $fetchMenu['img_menu']; ?>" class="card-img-top" alt="..." />
+                                <div class="card-body">
+                                  <div class="judulmenu d-flex">
+                                    <div class="col-10 text-start">
+                                      <h5 class="card-title fw-bold">
+                                        <?php echo $fetchMenu['nama_menu']; ?> <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp <?php echo $fetchMenu['price_menu']; ?></p></span>
+                                      </h5>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                      <button id="btns1" class="btnfav" onclick="toggle1('btns1')"><i class="bi bi-heart-fill"></i></button>
+                                    </div>
+                                  </div>
+                                  <p class="card-text pt-2"><?php echo $fetchMenu['desc_menu']; ?></p>
+                                  <div class="formcheck">
+                                    <form action="">
+                                      <div class="button-click row pt-3 ps-2">
+                                        <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                          <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                          <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                                        ></a>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>   
+                              <?php } ?>   
 
                 <?php  
                   $queryCanten = mysqli_query($koneksi, "SELECT * FROM cafetaria ORDER BY id_cafet DESC") or die (mysqli_error());
@@ -376,7 +412,7 @@
                         <div class="button-click row pt-4 ps-2">
                           <!-- <a href="Cafetaria_info.php<?php $id=$fetchCanten['id_cafet']; ?>" class="btn btn-click"> -->
                           <?php 
-                            echo "<a href='Cafetaria_info.php?id_c=$fetchCanten[id_cafet]' class='btn btn-click'>";
+                            echo "<a href='Cafetaria_info.php?id_c=$fetchCanten[id_owner]' class='btn btn-click'>";
                           ?>
                             Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span>
                           </a>
