@@ -1,5 +1,5 @@
 <?php
-  include "config.php";
+  include "../config.php";
   session_start();
 
   if ($_SESSION['status']!="login"){
@@ -39,15 +39,15 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/Style2.css" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/Style2.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
   </head>
 
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-danger">
       <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3 fw-bold" href="index.php">My Canteen</a>
+      <a class="navbar-brand ps-3 fw-bold" href="index_owner.php">My Canteen</a>
       <!-- Sidebar Toggle-->
       <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
       <!-- Navbar Search-->
@@ -95,10 +95,10 @@
           <div class="container">
             <div class="col-lg-12 col-sm-12 col-md-3 row">
               <div class="row">
-                <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Add Canteen</h3>
+                <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Update Menu</h3>
                 <div class="col-lg-12 col-sm-12 col-md-3 mt-2 mb-2 p-2 border" id="owned_canten">
 
-                  <form action="functions/update_canten_process.php" method="post" class="form-group">
+                  <form action="../functions/update_menu_process.php" method="post" enctype="multipart/form-data" class="form-group">
                     <input type="hidden" name="id_menu" value="<?php echo $fetchc['id_menu']; ?>">
                     <div class="form-group">
                       <label for="menuName">Menu Name</label>
@@ -106,20 +106,20 @@
                     </div>
                     <div class="form-group">
                       <label for="menuDesc">Menu Description</label>
-                      <textarea class="form-control" id="menuDesc" name="menuDesc" rows="3" value="<?php echo $fetchc['desc_menu']; ?>"></textarea>
+                      <textarea class="form-control" id="menuDesc" name="menuDesc" rows="3"><?php echo $fetchc['desc_menu']; ?></textarea>
                     </div>
                     <br>
                     <p class="hint-text">Update your profile pic.</p>
-                    <input type="hidden" name="oldpic" value="<?php  echo $fetchc['img_menu'];?>">
+                    <input type="hidden" name="oldpic" value="<?php echo $fetchc['img_menu'];?>">
                     <div class="form-group">
-                      <img src="profilepics/<?php  echo $row['img_menu'];?>" width="120" height="120">
+                      <img src="../img/<?php echo $row['img_menu'];?>" width="120" height="120">
                     </div>                     
                     <div class="form-group">
-                      <input type="file" class="form-control" name="profilepic"  required="true">
+                      <input type="file" class="form-control" name="profilepic">
                       <span style="color:red; font-size:12px;">Only jpg / jpeg/ png /gif format allowed.</span>
                     </div> 
                     <br>
-                    <button type="submit" name="submitAdd" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submitUpdate" class="btn btn-primary">Submit</button>
                   </form>
 
                 </div>                

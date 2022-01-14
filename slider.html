@@ -31,6 +31,10 @@
         <div class="BestMenu-carousel">
           <div class="swiper-container">
             <div class="swiper-wrapper">
+              <?php  
+                $pickMenu = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY id_menu asc") or die (mysqli_error());
+                while ($fetchMenu=mysqli_fetch_array($pickMenu)) { 
+              ?>    
               <div class="swiper-slide">
                 <div class="testi-item">
                   <div class="card p-0">
@@ -61,6 +65,9 @@
                   </div>
                 </div>
               </div>
+              <?php
+                }
+              ?>
 
               <!--second--->
               <div class="swiper-slide">

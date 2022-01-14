@@ -4,26 +4,26 @@
 
   if ($_SESSION['status']!="login"){
     //header("location:../index.php?pesan=belum_login");
-    echo "<script>alert('Login First!');document.location='../login.php'</script>";
+    echo "<script>alert('Login First!');document.location='login.php'</script>";
 
   } else  if ((time() - $_SESSION['last_login_timestamp']) > 18000) { // 18000 seconds = 5 * 3600    
     //header("location:functions/logout.php");  
     $_SESSION['status'] = "logout";
-    echo "<script>alert('Session Timed out!');document.location='../login.php'</script>";
+    echo "<script>alert('Session Timed out!');document.location='login.php'</script>";
 
   } else {
     $user = $_SESSION['username'];
-
     $pick=mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$user'");
-
     $fetch=mysqli_fetch_array($pick);
-
     $id_owner = $fetch['id'];
 
+    $idc=$_GET['id_c'];
+    $queryC=mysqli_query($koneksi, "SELECT * FROM cafetaria WHERE id_cafet = '$idc'");
+    $fetchc=mysqli_fetch_array($queryC);
   }
 
   if ($fetch['role'] != "own") {
-    echo "<script>alert('You are logged as a Reguler User');document.location='../index.php'</script>";
+    echo "<script>alert('You are logged as a Reguler User');document.location='index.php'</script>";
   }
 ?>
 
@@ -66,7 +66,7 @@
             <li><a class="dropdown-item" href="#!">Activity Log</a></li>
             <li><a class="dropdown-item" href="add_canten.php">Add Canten</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="../functions/logout.php">Logout</a></li>
+            <li><a class="dropdown-item" href="functions/logout.php">Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -95,37 +95,34 @@
           <div class="container">
             <div class="col-lg-12 col-sm-12 col-md-3 row">
               <div class="row">
-                <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Add Menu</h3>
+                <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Add Canteen</h3>
                 <div class="col-lg-12 col-sm-12 col-md-3 mt-2 mb-2 p-2 border" id="owned_canten">
-                  <form action="../functions/add_menu_process.php" method="post" enctype="multipart/form-data" class="form-group">
-                    <input type="hidden" name="id_owner" value="<?php echo $fetch['id']; ?>">
-                    <div class="form-group mb-3">
-                      <label for="menuName">Menu Name</label>
-                      <input type="text" class="form-control" id="menuName" name="menuName" aria-describedby="emailHelp" placeholder="Enter Menu Name">                     
+
+                  <form action="functions/update_canten_process.php" method="post" enctype="multipart/form-data" class="form-group">
+                    <input type="hidden" name="id_owner" value="<?php echo $fetchc['id']; ?>">
+                    <div class="form-group">
+                      <label for="cantenName">Canteen Name</label>
+                      <input type="text" class="form-control" id="cantenName" name="cantenName" aria-describedby="emailHelp" placeholder="Enter Canteen Name" value="<?php echo $fetchc['nama_cafet']; ?>">
                     </div>
-                    <div class="form-group mb-3">
-                      <label for="menuDesc">Menu Description</label>
-                      <textarea class="form-control" id="menuDesc" name="menuDesc" rows="3"></textarea>
+                    <div class="form-group">
+                      <label for="cantenDesc">Canteen Description</label>
+                      <textarea class="form-control" id="cantenDesc" name="cantenDesc" rows="3" value="<?php echo $fetchc['cafet_desc']; ?>"></textarea>
                     </div>
-                    <div class="form-group mb-3">
-                      <label for="menuPrice">Menu Price</label>
-                      <input type="text" class="form-control" id="menuPrice" name="menuPrice" aria-describedby="emailHelp" placeholder="Enter Price Amount">                     
+                    <br>
+                    <p class="hint-text">Canteen Profile Pic</p>
+                    <input type="hidden" name="oldpic" value="<?php  echo $fetchc['ProfilePic'];?>">
+                    <div class="form-group">
+                      <img src="profilepics/<?php  echo $row['ProfilePic'];?>" width="120" height="120">
                     </div>
-                    <div class="form-group mb-3">
-                      <label for="exampleFormControlSelect1">Menu Type</label>
-                      <select class="form-control" id="exampleFormControlSelect1" name="menuType">
-                        <option selected disabled>Pilih</option>
-                        <option>food</option>
-                        <option>drinks</option>
-                      </select>
-                    </div>
-                    <div class="form-group mb-3">
-                      <input type="file" class="form-control" name="menuPic" required="true">
+                     
+                    <div class="form-group">
+                      <input type="file" class="form-control" name="profilepic"  required="true">
                       <span style="color:red; font-size:12px;">Only jpg / jpeg/ png /gif format allowed.</span>
                     </div> 
                     <br>
-                    <button type="submit" name="submitAdd" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submitUpdateCan" class="btn btn-primary">Submit</button>
                   </form>
+
                 </div>                
               </div>
             </div>

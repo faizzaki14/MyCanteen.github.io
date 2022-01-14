@@ -1,4 +1,5 @@
 <?php
+  //error_reporting(E_ALL ^ E_WARNING);
   include "../config.php";
   session_start();
 
@@ -15,10 +16,13 @@
     $user = $_SESSION['username'];
 
     $pick=mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$user'");
-
     $fetch=mysqli_fetch_array($pick);
-
     $id_owner = $fetch['id'];
+
+    $queryMenu = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY id_menu Asc") or die (mysqli_error());   
+    
+    $queryCanten = mysqli_query($koneksi, "SELECT * FROM cafetaria WHERE id_owner = '$id_owner'") or die (mysqli_error());  
+    $check = mysqli_fetch_array($queryCanten);
 
   }
 
@@ -47,7 +51,7 @@
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-danger">
       <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3 fw-bold" href="index.php">My Canteen</a>
+      <a class="navbar-brand ps-3 fw-bold" href="../index.php">My Canteen</a>
       <!-- Sidebar Toggle-->
       <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
       <!-- Navbar Search-->
@@ -62,9 +66,10 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#!">Settings</a></li>
-            <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-            <li><a class="dropdown-item" href="add_canten.php">Add Canten</a></li>
+            <!-- <li><a class="dropdown-item" href="#!">Settings</a></li> -->
+           <!--  <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
+            <li><a class="dropdown-item" href="updateCanteen.php">Update Profile</a></li>
+            <li><a class="dropdown-item" href="updateCanteen.php">Update Canten</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="../functions/logout.php">Logout</a></li>
           </ul>
@@ -77,6 +82,15 @@
           <div class="sb-sidenav-menu">
             <div class="nav">
               <div class="sb-sidenav-menu-heading">Canteen</div>
+              <?php 
+                $idCheck = $check['id_cafet'];
+                if($idCheck === null) {
+                  echo "<a class='nav-link' href='add_canten.php'>
+                        <div class='sb-nav-link-icon'><i class='fas fa-tachometer-alt'></i></div>
+                        Add New Canteen
+                      </a>";
+                }
+              ?>              
               <a class="nav-link" href="add_menu.php">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Add New Menu
@@ -153,10 +167,10 @@
                   <h2 class="display-4">Display 4</h2>
                 </div> -->
                 <?php
-                  $queryCanten = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY id_menu Asc") or die (mysqli_error());                  
-                  
-                  while ($fetchCanten = mysqli_fetch_array($queryCanten)) {
+
+                  while ($fetchCanten = mysqli_fetch_array($queryMenu)) {
                     if ($fetchCanten['id_canteen'] == $fetch['id']) {
+                
                 ?>
                 <div class="card p-0 mb-4 ml-5" style="width: 20rem; margin-left: 0.8rem;">
                   <img src="../img/<?php  echo $fetchCanten['img_menu'];?>" width="80" height="80">
@@ -172,8 +186,8 @@
                     <div class="formcheck">
                       <form action="">
                         <div class="button-click row pt-3 ps-2">
-                          <?php echo "<a href='updateOwner.php?id_c=$fetchCanten[id_canteen]' class='btn btn-primary mb-2'>Update</a>" ?>
-                          <a href="#" class="btn btn-danger">Delete</a>
+                          <a href="updateMenu.php?id_c=<?php echo $fetchCanten['id_menu']; ?>" class="btn btn-primary mb-2">Update</a> 
+                          <a href="../functions/delete_menu_process.php?id_c=<?php echo $fetchCanten['id_menu']; ?>" class="btn btn-danger">Delete</a>
                         </div>
                       </form>
                     </div>

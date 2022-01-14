@@ -4,26 +4,23 @@
 
   if ($_SESSION['status']!="login"){
     //header("location:../index.php?pesan=belum_login");
-    echo "<script>alert('Login First!');document.location='../login.php'</script>";
+    echo "<script>alert('Login First!');document.location='login.php'</script>";
 
   } else  if ((time() - $_SESSION['last_login_timestamp']) > 18000) { // 18000 seconds = 5 * 3600    
     //header("location:functions/logout.php");  
     $_SESSION['status'] = "logout";
-    echo "<script>alert('Session Timed out!');document.location='../login.php'</script>";
+    echo "<script>alert('Session Timed out!');document.location='login.php'</script>";
 
   } else {
     $user = $_SESSION['username'];
-
     $pick=mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$user'");
-
     $fetch=mysqli_fetch_array($pick);
-
     $id_owner = $fetch['id'];
 
   }
 
   if ($fetch['role'] != "own") {
-    echo "<script>alert('You are logged as a Reguler User');document.location='../index.php'</script>";
+    echo "<script>alert('You are logged as a Reguler User');document.location='index.php'</script>";
   }
 ?>
 
@@ -47,7 +44,7 @@
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-danger">
       <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3 fw-bold" href="index.php">My Canteen</a>
+      <a class="navbar-brand ps-3 fw-bold" href="index_owner.php">My Canteen</a>
       <!-- Sidebar Toggle-->
       <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
       <!-- Navbar Search-->
@@ -95,37 +92,29 @@
           <div class="container">
             <div class="col-lg-12 col-sm-12 col-md-3 row">
               <div class="row">
-                <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Add Menu</h3>
+                <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Add Canteen</h3>
                 <div class="col-lg-12 col-sm-12 col-md-3 mt-2 mb-2 p-2 border" id="owned_canten">
-                  <form action="../functions/add_menu_process.php" method="post" enctype="multipart/form-data" class="form-group">
-                    <input type="hidden" name="id_owner" value="<?php echo $fetch['id']; ?>">
-                    <div class="form-group mb-3">
-                      <label for="menuName">Menu Name</label>
-                      <input type="text" class="form-control" id="menuName" name="menuName" aria-describedby="emailHelp" placeholder="Enter Menu Name">                     
+
+                  <form action="../functions/add_canten_process.php" method="post" enctype="multipart/form-data" class="form-group">
+                    <input type="hidden" name="id_owner" value="<?php echo $id_owner; ?>">
+                    <div class="form-group mb-2">
+                      <label for="nama_canten">Canteen Name</label>
+                      <input type="text" class="form-control" id="nama_canten" name="nama_canten" placeholder="Enter Canteen Name">
                     </div>
-                    <div class="form-group mb-3">
-                      <label for="menuDesc">Menu Description</label>
-                      <textarea class="form-control" id="menuDesc" name="menuDesc" rows="3"></textarea>
+                    <br><br>
+                    <div class="form-group mb-2">
+                      <label for="desc_canten">Canteen Description</label>
+                      <textarea class="form-control" id="desc_canten" name="desc_canten" rows="3"></textarea>
                     </div>
-                    <div class="form-group mb-3">
-                      <label for="menuPrice">Menu Price</label>
-                      <input type="text" class="form-control" id="menuPrice" name="menuPrice" aria-describedby="emailHelp" placeholder="Enter Price Amount">                     
-                    </div>
-                    <div class="form-group mb-3">
-                      <label for="exampleFormControlSelect1">Menu Type</label>
-                      <select class="form-control" id="exampleFormControlSelect1" name="menuType">
-                        <option selected disabled>Pilih</option>
-                        <option>food</option>
-                        <option>drinks</option>
-                      </select>
-                    </div>
-                    <div class="form-group mb-3">
-                      <input type="file" class="form-control" name="menuPic" required="true">
+                    <br><br>
+                    <div class="form-group">
+                      <input type="file" class="form-control" name="gambar_canten" required="true">
                       <span style="color:red; font-size:12px;">Only jpg / jpeg/ png /gif format allowed.</span>
-                    </div> 
+                    </div>                 
                     <br>
-                    <button type="submit" name="submitAdd" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit_add_canten" class="btn btn-primary">Submit</button>
                   </form>
+
                 </div>                
               </div>
             </div>

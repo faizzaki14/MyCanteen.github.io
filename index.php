@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
     <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/Style2.css" />
+    <link rel="stylesheet" href="css/slider.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
   </head>
 
@@ -147,248 +148,69 @@
                   <h3 class="fw-bold">Best Deal</h3>
                   <br /><br />
                   <div class="container">
-                    <div class="bestDealMenu d-flex">
-                      <div class="swiper-button-prev-unique">
-                        <button class="border-0 bg-transparent">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="swiper">                       
-                        <div class="swiper-container">
-                          <div class="swiper-wrapper gap-3" style="display: flex">
-                            <!-- Menu Makan 1 --> 
-                            <?php  
-                               $pickMenu = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY id_menu asc") or die (mysqli_error());
+                    <section>
+                      <div class="BestMenu-carousel-wrap">
+                        <div class="listing-carousel-button listing-carousel-button-next">
+                          <button class="border-0 bg-transparent">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                          </button>
+                        </div>
+                        <div class="listing-carousel-button listing-carousel-button-prev">
+                          <button class="border-0 bg-transparent">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                            </svg>
+                          </button>
+                        </div>
+                        <div class="BestMenu-carousel">
+                          <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                              <?php  
+                                $pickMenu = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY id_menu asc") or die (mysqli_error());
                                 while ($fetchMenu=mysqli_fetch_array($pickMenu)) { 
-                            ?>                            
-                            <div class="swiper-slide">                          
-                              <div class="card p-0 mr-3 ml-3" style="width: 20rem;">
-                                <img src="img/<?php echo $fetchMenu['img_menu']; ?>" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                  <div class="judulmenu d-flex">
-                                    <div class="col-10 text-start">
-                                      <h5 class="card-title fw-bold">
-                                        <?php echo $fetchMenu['nama_menu']; ?> <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp <?php echo $fetchMenu['price_menu']; ?></p></span>
-                                      </h5>
-                                    </div>
-                                    <div class="col-2 text-end">
-                                      <button id="btns1" class="btnfav" onclick="toggle1('btns1')"><i class="bi bi-heart-fill"></i></button>
-                                    </div>
-                                  </div>
-                                  <p class="card-text pt-2"><?php echo $fetchMenu['nama_menu']; ?></p>
-                                  <div class="formcheck">
-                                    <form action="">
-                                      <div class="button-click row pt-3 ps-2">
-                                        <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                          <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                          <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                                        ></a>
+                              ?>    
+                              <div class="swiper-slide">
+                                <div class="testi-item">
+                                  <div class="card p-0">
+                                    <img src="img/<?php echo $fetchMenu['img_menu']; ?>" class="card-img-top" alt="..." />
+                                    <div class="card-body">
+                                      <div class="judulmenu d-flex">
+                                        <div class="col-10 text-start">
+                                          <h5 class="card-title fw-bold">
+                                            <?php echo $fetchMenu['nama_menu']; ?> <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp <?php echo $fetchMenu['price_menu']; ?></p></span>
+                                          </h5>
+                                        </div>
+                                        <div class="col-2 text-end">
+                                          <button id="btns6" class="btnfav" onclick="toggle1('btns6')"><i class="bi bi-heart-fill"></i></button>
+                                        </div>
                                       </div>
-                                    </form>
+                                      <p class="card-text pt-2"><?php echo $fetchMenu['desc_menu']; ?></p>
+                                      <div class="formcheck">
+                                        <form action="">
+                                          <div class="button-click row pt-3 ps-2">
+                                            <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                                              <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
+                                              <span class="text-end"><i class="bi bi-cart-plus"></i></span
+                                            ></a>
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>                           
+                              </div>
+                              <?php
+                                }
+                              ?>                              
                             </div>
-                          <?php } ?>
-                            
-                             <!-- Menu Makan 1 akhir -->                              
-                              <!-- Menu Makan 2 -->
-                           <!--  <div class="swiper-slide">                           
-                              <div class="card p-0">
-                                <img src="assets/img/mie kuah.jpg" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                  <div class="judulmenu d-flex">
-                                    <div class="col-10 text-start">
-                                      <h5 class="card-title fw-bold">
-                                        Mie Kuah <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 5.000</p></span>
-                                      </h5>
-                                    </div>
-                                    <div class="col-2 text-end">
-                                      <button id="btns2" class="btnfav" onclick="toggle1('btns2')"><i class="bi bi-heart-fill"></i></button>
-                                    </div>
-                                  </div>
-                                  <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
-                                  <div class="formcheck">
-                                    <form action="">
-                                      <div class="button-click row pt-3 ps-2">
-                                        <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                          <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                          <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                                        ></a>
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
-                              </div>                             
-                            </div> -->
-                             <!-- Menu Makan 2 akhir -->
-                              <!-- Menu Makan 3 -->
-                           <!--  <div class="swiper-slide">                             
-                              <div class="card p-0">
-                                <img src="assets/img/mie ayam.jpg" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                  <div class="judulmenu d-flex">
-                                    <div class="col-10 text-start">
-                                      <h5 class="card-title fw-bold">
-                                        Mie Ayam <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 13.000</p></span>
-                                      </h5>
-                                    </div>
-                                    <div class="col-2 text-end">
-                                      <button id="btns3" class="btnfav" onclick="toggle1('btns3')"><i class="bi bi-heart-fill"></i></button>
-                                    </div>
-                                  </div>
-                                  <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
-                                  <div class="formcheck">
-                                    <form action="">
-                                      <div class="button-click row pt-3 ps-2">
-                                        <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                          <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                          <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                                        ></a>
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
-                              </div>                             
-                            </div> -->
-                            <!-- Menu Makan 3 akhir -->
-                             <!-- Menu Makan 4 -->
-                           <!--  <div class="swiper-slide">                             
-                              <div class="card p-0">
-                                <img src="assets/img/perkedel + sayur.jpg" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                  <div class="judulmenu d-flex">
-                                    <div class="col-10 text-start">
-                                      <h5 class="card-title fw-bold">
-                                        Nasi + Lauk <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 5.000</p></span>
-                                      </h5>
-                                    </div>
-                                    <div class="col-2 text-end">
-                                      <button id="btns4" class="btnfav" onclick="toggle1('btns4')"><i class="bi bi-heart-fill"></i></button>
-                                    </div>
-                                  </div>
-                                  <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
-                                  <div class="formcheck">
-                                    <form action="">
-                                      <div class="button-click row pt-3 ps-2">
-                                        <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                          <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                          <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                                        ></a>
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
-                              </div>                              
-                            </div> -->
-                            <!-- Menu Makan 4akhir -->
-                            <!-- Menu Makan 5 -->
-                            <!-- <div class="swiper-slide">                             
-                              <div class="card p-0">
-                                <img src="assets/img/es teh.jpg" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                  <div class="judulmenu d-flex">
-                                    <div class="col-10 text-start">
-                                      <h5 class="card-title fw-bold">
-                                        Ice Tea <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 3.000</p></span>
-                                      </h5>
-                                    </div>
-                                    <div class="col-2 text-end">
-                                      <button id="btns5" class="btnfav" onclick="toggle1('btns5')"><i class="bi bi-heart-fill"></i></button>
-                                    </div>
-                                  </div>
-                                  <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
-                                  <div class="formcheck">
-                                    <form action="">
-                                      <div class="button-click row pt-3 ps-2">
-                                        <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                          <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                          <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                                        ></a>
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
-                              </div>                              
-                            </div> -->
-                            <!-- Menu Makan 5 akhir -->
-                            <!-- Menu Makan 6 -->
-                            <!-- <div class="swiper-slide">
-                              <div class="card p-0">
-                                <img src="assets/img/jus alpukat.jpg" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                  <div class="judulmenu d-flex">
-                                    <div class="col-10 text-start">
-                                      <h5 class="card-title fw-bold">
-                                        Jus Alpukat <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 10.000</p></span>
-                                      </h5>
-                                    </div>
-                                    <div class="col-2 text-end">
-                                      <button id="btns6" class="btnfav" onclick="toggle1('btns6')"><i class="bi bi-heart-fill"></i></button>
-                                    </div>
-                                  </div>
-                                  <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
-                                  <div class="formcheck">
-                                    <form action="">
-                                      <div class="button-click row pt-3 ps-2">
-                                        <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                          <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                          <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                                        ></a>
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
-                              </div>                              
-                            </div> -->
-                            <!-- Menu Makan 6 akhir -->
                           </div>
                         </div>
                       </div>
-                      <div class="swiper-button-next-unique">
-                        <button class="border-0 bg-transparent">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
+                    </section>
                   </div>
-                </div>
-
-                 <?php 
-                                $pickMenu = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY id_menu aSC") or die (mysqli_error());
-                                while ($fetchMenu=mysqli_fetch_array($pickMenu)) { 
-                              ?>                              
-                              <div class="card p-0 mt-5 mb-4" style="width: 20rem; margin-left: 2rem;">
-                                <img src="img/<?php echo $fetchMenu['img_menu']; ?>" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                  <div class="judulmenu d-flex">
-                                    <div class="col-10 text-start">
-                                      <h5 class="card-title fw-bold">
-                                        <?php echo $fetchMenu['nama_menu']; ?> <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp <?php echo $fetchMenu['price_menu']; ?></p></span>
-                                      </h5>
-                                    </div>
-                                    <div class="col-2 text-end">
-                                      <button id="btns1" class="btnfav" onclick="toggle1('btns1')"><i class="bi bi-heart-fill"></i></button>
-                                    </div>
-                                  </div>
-                                  <p class="card-text pt-2"><?php echo $fetchMenu['desc_menu']; ?></p>
-                                  <div class="formcheck">
-                                    <form action="">
-                                      <div class="button-click row pt-3 ps-2">
-                                        <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                          <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                          <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                                        ></a>
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
-                              </div>   
-                              <?php } ?>   
+                </div>                 
 
                 <?php  
                   $queryCanten = mysqli_query($koneksi, "SELECT * FROM cafetaria ORDER BY id_cafet DESC") or die (mysqli_error());

@@ -20,8 +20,7 @@ if (isset($_POST['submitAdd']))
 		{
 			echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
 		
-		} else
-		{
+		} else {
 			//rename the image file
 			$imgnewfile = md5($imgfile).time().$extension;
 			// Code for move image into directory
@@ -32,18 +31,17 @@ if (isset($_POST['submitAdd']))
 			$stat = mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM menu WHERE nama_menu='$nama'"));
 
 			if ($stat > 0) {
-				echo "<script>alert('Menu Name Is Already Exist');document.location='../owner/add_canten.php'</script>";
+				echo "<script>alert('Menu Is Already Exist');document.location='../owner/add_canten.php'</script>";
 
 			} else {		
 				mysqli_query($koneksi, $query);
-				echo "<script>alert('Data Successfully Added');document.location='../owner/index_owner.php'</script>";
+				echo "<script>alert('Menu Data Successfully Added');document.location='../owner/index_owner.php'</script>";
 
 			}
 		}
 
 	} else {
-	echo "<script>alert('Error Detected, Please Try Again!');document.location='../owner/add_canten.php'</script>";
-
-}
+		echo "<script>alert('Error Detected, Please Try Again!');document.location='../owner/add_canten.php'</script>";
+	}
 
  ?>
