@@ -101,30 +101,39 @@
                 <div class="col-lg-12 col-sm-12 col-md-3 mt-2 mb-2 p-2 border" id="owned_canten">
 
                   <form action="../functions/update/update_process.php" method="post" enctype="multipart/form-data" class="form-group">
-                    <input type="hidden" name="id_owner" value="<?php echo $id_owner; ?>">
+                    <input type="hidden" name="id" value="<?php echo $fetch['id']; ?>">
                     <div class="form-group">
-                      <label for="cantenName">Canteen Name</label>
-                      <input type="text" class="form-control" id="cantenName" name="cantenName" aria-describedby="emailHelp" placeholder="Enter Canteen Name" value="<?php echo $fetchc['nama_cafet']; ?>">
+                      <label for="userName">Username</label>
+                      <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter Username" value="<?php echo $fetch['username']; ?>">
                     </div>
                     <br><br>
                     <div class="form-group">
-                      <label for="cantenDesc">Canteen Description</label>
-                      <textarea class="form-control" id="cantenDesc" name="cantenDesc" rows="3"><?php echo $fetchc['cafet_desc']; ?></textarea>
+                      <label for="email">Email</label>
+                      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" value="<?php echo $fetch['email']; ?>">
                     </div>
                     <br><br>
-                    <p class="hint-text">Canteen Profile Pic</p>
-                    <input type="hidden" name="oldpic" value="<?php echo $fetchc['cafet_img']; ?>">
                     <div class="form-group">
-                      <img src="../img/<?php  echo $fetchc['cafet_img'];?>" width="120" height="120">
+                      <label for="name">Full Name</label>
+                      <input type="text" class="form-control" id="name" name="nama" aria-describedby="emailHelp" placeholder="Enter Full Name" value="<?php echo $fetch['full_name']; ?>">
                     </div>
-                    <p><?php  echo $fetchc['cafet_img'];?></p>
+                    <br><br>
+                    <div class="form-group">
+                      <label for="pass">Password</label>
+                      <input type="password" class="form-control" id="pass" name="pass" aria-describedby="emailHelp" placeholder="Enter Password" value="<?php echo $fetch['password']; ?>">
+                    </div>
+                    <br><br>
+                    <p class="hint-text">Profile Picture</p>
+                    <input type="hidden" name="oldpic" value="<?php echo $fetch['img']; ?>">
+                    <div class="form-group">
+                      <img src="../img/<?php  echo $fetch['img'];?>" width="120" height="120">
+                    </div>                    
                     <br>                     
                     <div class="form-group">
                       <input type="file" class="form-control" name="profilepic"  required="true">
                       <span style="color:red; font-size:12px;">Only jpg / jpeg/ png /gif format allowed.</span>
                     </div> 
                     <br>
-                    <button type="submit" name="submitUpdateCan" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submitUpdatePro" class="btn btn-primary">Submit</button>
                   </form>
 
                 </div>                

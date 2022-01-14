@@ -17,9 +17,12 @@
     $fetch=mysqli_fetch_array($pick);
     $id_owner = $fetch['id'];
 
+    $query=mysqli_query($koneksi, "SELECT * FROM cafetaria WHERE id_owner = '$id_owner'");
+    $fetchc=mysqli_fetch_array($query);
+
     $idc=$_GET['id_c'];
-    $queryC=mysqli_query($koneksi, "SELECT * FROM menu WHERE id_menu = '$idc'");
-    $fetchc=mysqli_fetch_array($queryC);
+    $queryM=mysqli_query($koneksi, "SELECT * FROM menu WHERE id_menu = '$idc'");
+    $fetchM=mysqli_fetch_array($queryM);
   }
 
   if ($fetch['role'] != "own") {
@@ -47,7 +50,7 @@
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-danger">
       <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3 fw-bold" href="index_owner.php">My Canteen</a>
+      <a class="navbar-brand ps-3 fw-bold" href="../index.php">My Canteen</a>
       <!-- Sidebar Toggle-->
       <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
       <!-- Navbar Search-->
@@ -62,9 +65,10 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#!">Settings</a></li>
-            <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-            <li><a class="dropdown-item" href="add_canten.php">Add Canten</a></li>
+            <!-- <li><a class="dropdown-item" href="#!">Settings</a></li> -->
+           <!--  <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
+            <li><a class="dropdown-item" href="profile_owner.php">Update Profile</a></li>
+            <li><a class="dropdown-item" href="updateCanteen.php">Update Canten</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="../functions/logout.php">Logout</a></li>
           </ul>
@@ -85,6 +89,8 @@
           </div>
           <div class="sb-sidenav-footer">
             <div class="small">Logged in as: <?php echo $fetch['username']; ?></div> 
+            <div class="small">ID User: <?php echo $fetch['id']; ?></div> 
+            <div class="small">ID Canteen: <?php echo $fetchc['id_cafet']; ?></div> 
             <div class="small">Role: <?php echo $fetch['role']; ?></div>            
           </div>
         </nav>
@@ -98,21 +104,21 @@
                 <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Update Menu</h3>
                 <div class="col-lg-12 col-sm-12 col-md-3 mt-2 mb-2 p-2 border" id="owned_canten">
 
-                  <form action="../functions/update_menu_process.php" method="post" enctype="multipart/form-data" class="form-group">
-                    <input type="hidden" name="id_menu" value="<?php echo $fetchc['id_menu']; ?>">
+                  <form action="../functions/update/(x)update_menu_process.php" method="post" enctype="multipart/form-data" class="form-group">
+                    <input type="hidden" name="id_menu" value="<?php echo $fetchM['id_menu']; ?>">
                     <div class="form-group">
                       <label for="menuName">Menu Name</label>
-                      <input type="text" class="form-control" id="menuName" name="menuName" placeholder="Enter Canteen Name" value="<?php echo $fetchc['nama_menu']; ?>">
+                      <input type="text" class="form-control" id="menuName" name="menuName" placeholder="Enter Canteen Name" value="<?php echo $fetchM['nama_menu']; ?>">
                     </div>
                     <div class="form-group">
                       <label for="menuDesc">Menu Description</label>
-                      <textarea class="form-control" id="menuDesc" name="menuDesc" rows="3"><?php echo $fetchc['desc_menu']; ?></textarea>
+                      <textarea class="form-control" id="menuDesc" name="menuDesc" rows="3"><?php echo $fetchM['desc_menu']; ?></textarea>
                     </div>
                     <br>
                     <p class="hint-text">Update your profile pic.</p>
-                    <input type="hidden" name="oldpic" value="<?php echo $fetchc['img_menu'];?>">
+                    <input type="hidden" name="oldpic" value="<?php echo $fetchM['img_menu'];?>">
                     <div class="form-group">
-                      <img src="../img/<?php echo $row['img_menu'];?>" width="120" height="120">
+                      <img src="../img/<?php echo $fetchM['img_menu'];?>" width="120" height="120">
                     </div>                     
                     <div class="form-group">
                       <input type="file" class="form-control" name="profilepic">

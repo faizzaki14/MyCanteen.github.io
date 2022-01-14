@@ -109,7 +109,7 @@
               </div>
               <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                 <div class="sb-naFsettingv-link-icon"><i class="fas fa-book-open"></i></div>
-                 Favorite
+                Favorite
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
               </a>
               <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
@@ -138,7 +138,7 @@
                   </div>
                 </nav>
               </div>
-              <!-- <div class="sb-sidenav-menu-heading">Addons</div>
+              <div class="sb-sidenav-menu-heading">Addons</div>
               <a class="nav-link" href="charts.html">
                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                 Charts
@@ -146,7 +146,7 @@
               <a class="nav-link" href="tables.html">
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                 Tables
-              </a> -->
+              </a>
             </div>
           </div>
           <div class="sb-sidenav-footer">
@@ -163,43 +163,40 @@
           <div class="container">
             <div class="col-lg-12 col-sm-12 col-md-12 row">
               <div class="row">
-                <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Manage Menu</h3>
-                <br><br><p></p>
-                <!-- <div class="col-lg-12 col-sm-12 col-md-3 mt-2 mb-2 p-2 border" id="owned_canten">
-                  <h2 class="display-4">Display 4</h2>
-                </div> -->
-                <?php
 
-                  while ($fetchCanten = mysqli_fetch_array($queryMenu)) {
-                    if ($fetchCanten['id_canteen'] == $fetch['id']) {
-                
-                ?>
-                <div class="card p-0 mb-4 ml-5" style="width: 20rem; margin-left: 0.8rem;">
-                  <img src="../img/<?php  echo $fetchCanten['img_menu'];?>" width="80" height="80">
+                <!-- <div class="card" style="width:3rem;">
+                  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
                   <div class="card-body">
-                    <div class="judulmenu d-flex">
-                      <div class="col-10 text-start">
-                        <h5 class="card-title fw-bold">
-                            <?php echo $fetchCanten['nama_menu']; ?> <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp <?php echo $fetchCanten['price_menu']; ?></p></span>
-                        </h5>
-                      </div>
-                    </div>
-                    <p class="card-text pt-2">"<?php echo $fetchCanten['desc_menu']; ?>"</p>
-                    <div class="formcheck">
-                      <form action="">
-                        <div class="button-click row pt-3 ps-2">
-                          <a href="updateMenu.php?id_c=<?php echo $fetchCanten['id_menu']; ?>" class="btn btn-primary mb-2">Update</a> 
-                          <!-- <a href="../functions/delete_menu_process.php?id_c=<?php echo $fetchCanten['id_menu']; ?>" class="btn btn-danger">Delete</a> -->
-                          <?php  echo "<td><a onClick=\"javascript: return confirm('Please confirm deletion');\" href='../functions/delete_menu_process.php?id_c=".$fetchCanten['id_menu']."' class='btn btn-danger'>Delete</a></td><tr>"; //use double quotes for js inside php!  ?>
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text.</p>
+                    <a href="#" class="btn btn-primary">See Profile</a>
+                  </div>
+                </div> -->
+
+                 <div class="card p-0 mx-auto" style="width: 30rem; height: 100% ">
+                    <img src="../img/<?php  echo $fetch['img'];?>" width="80" height="90">
+                    <div class="card-body p-2">
+                      <div class="judulmenu d-flex">
+                        <div class="col-10 text-start">
+                          <h5 class="card-title fw-bold">
+                              Username      : <?php echo $fetch['username']; ?> 
+                          </h5>
+                          <br>
+                          <h5 class="card-title fw-bold">
+                              Full Name     : <?php echo $fetch['full_name']; ?> 
+                          </h5>
+                          <br>
+                          <h5 class="card-title fw-bold">
+                              Phone Number  : <?php echo $fetch['phone']; ?> 
+                          </h5>
                         </div>
-                      </form>
+                      </div>
+                      <br><br>
+                      <a href="updateCanteen.php" class="btn btn-primary mb-2">Update Canteen Info</a> 
+                      <a href="update_profile_own.php" class="btn btn-primary mb-2">Update profile</a>                  
                     </div>
                   </div>
-                </div>
-                <?php
-                    }
-                  }
-                ?>
+
               </div>
             </div>
           </div>

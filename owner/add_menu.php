@@ -47,7 +47,7 @@
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-danger">
       <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3 fw-bold" href="index.php">My Canteen</a>
+      <a class="navbar-brand ps-3 fw-bold" href="../index.php">My Canteen</a>
       <!-- Sidebar Toggle-->
       <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
       <!-- Navbar Search-->
@@ -62,9 +62,10 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#!">Settings</a></li>
-            <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-            <li><a class="dropdown-item" href="add_canten.php">Add Canten</a></li>
+            <!-- <li><a class="dropdown-item" href="#!">Settings</a></li> -->
+           <!--  <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
+            <li><a class="dropdown-item" href="profile_owner.php">Update Profile</a></li>
+            <li><a class="dropdown-item" href="updateCanteen.php">Update Canten</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="../functions/logout.php">Logout</a></li>
           </ul>
@@ -85,6 +86,8 @@
           </div>
           <div class="sb-sidenav-footer">
             <div class="small">Logged in as: <?php echo $fetch['username']; ?></div> 
+            <div class="small">ID User: <?php echo $fetch['id']; ?></div> 
+            <div class="small">ID Canteen: <?php echo $check['id_cafet']; ?></div> 
             <div class="small">Role: <?php echo $fetch['role']; ?></div>            
           </div>
         </nav>
@@ -97,7 +100,7 @@
               <div class="row">
                 <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Add Menu</h3>
                 <div class="col-lg-12 col-sm-12 col-md-3 mt-2 mb-2 p-2 border" id="owned_canten">
-                  <form action="../functions/add_menu_process.php" method="post" enctype="multipart/form-data" class="form-group">
+                  <form action="../functions/add_process.php" method="post" enctype="multipart/form-data" class="form-group">
                     <input type="hidden" name="id_owner" value="<?php echo $fetch['id']; ?>">
                     <div class="form-group mb-3">
                       <label for="menuName">Menu Name</label>

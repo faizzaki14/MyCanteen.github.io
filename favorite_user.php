@@ -15,6 +15,7 @@
     $user = $_SESSION['username'];
     $pick=mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$user'");
     $fetch=mysqli_fetch_array($pick);
+    $id_user=$fetch['id'];
 
   }
 
@@ -92,9 +93,9 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 HomePage
               </a>
-              <a class="nav-link" href="favorite_user.php">
-                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                 Favorite
+              <a class="nav-link" href="index.php">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                  Favorite
               </a>
               <div class="sb-sidenav-menu-heading">Keranjang</div>
               <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -108,13 +109,11 @@
                   <a class="nav-link" href="layout-sidenav-light.html">Riwayat Transaksi</a>
                 </nav>
               </div>
-              <!--
               <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                 <div class="sb-naFsettingv-link-icon"><i class="fas fa-book-open"></i></div>
                  Favorite
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
               </a>
-              
               <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
@@ -141,8 +140,7 @@
                   </div>
                 </nav>
               </div>
-              -->
-              <!-- <div class="sb-sidenav-menu-heading">Addons</div>
+              <div class="sb-sidenav-menu-heading">Addons</div>
               <a class="nav-link" href="charts.html">
                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                 Charts
@@ -150,7 +148,7 @@
               <a class="nav-link" href="tables.html">
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                 Tables
-              </a> -->
+              </a>
             </div>
           </div>
           <div class="sb-sidenav-footer">
@@ -165,109 +163,45 @@
           <div class="container">
             <div class="col-lg-12 col-sm-12 col-md-12 row">
               <div class="row">
-                <div class="bestdeal mx-auto">
-                  <h3 class="fw-bold">Best Deal</h3>
-                  <br /><br />
-                  <div class="container">
-                    <section>
-                      <div class="BestMenu-carousel-wrap">
-                        <div class="listing-carousel-button listing-carousel-button-next">
-                          <button class="border-0 bg-transparent">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                            </svg>
-                          </button>
-                        </div>
-                        <div class="listing-carousel-button listing-carousel-button-prev">
-                          <button class="border-0 bg-transparent">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                              <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-                            </svg>
-                          </button>
-                        </div>
-                        <div class="BestMenu-carousel">
-                          <div class="swiper-container">
-                            <div class="swiper-wrapper">
-                              <?php  
-                                $pickMenu = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY id_menu asc") or die (mysqli_error());
-                                while ($fetchMenu=mysqli_fetch_array($pickMenu)) { 
-                              ?>    
-                              <div class="swiper-slide">
-                                <div class="testi-item">
-                                  <div class="card p-0">
-                                    <img src="img/<?php echo $fetchMenu['img_menu']; ?>" class="card-img-top" alt="..." />
-                                    <div class="card-body">
-                                      <div class="judulmenu d-flex">
-                                        <div class="col-10 text-start">
-                                          <h5 class="card-title fw-bold">
-                                            <?php echo $fetchMenu['nama_menu']; ?> <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp <?php echo $fetchMenu['price_menu']; ?></p></span>
-                                          </h5>
-                                        </div>
-                                        <div class="col-2 text-end">
-                                          <!-- <button id="btns6" class="btnfav" onclick="toggle1('btns6')"><i class="bi bi-heart-fill"></i></button> -->
-                                          <a href="functions/add/add_favorite.php?id_m=<?php echo $fetchMenu['id_menu'];?>" id="btns6" class="btnfav"><i class="bi bi-heart-fill"></i></a>
-                                        </div>
-                                      </div>
-                                      <p class="card-text pt-2"><?php echo $fetchMenu['desc_menu']; ?></p>
-                                      <div class="formcheck">
-                                        <form action="">
-                                          <div class="button-click row pt-3 ps-2">
-                                            <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                              <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                              <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                                            ></a>
-                                          </div>
-                                        </form>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <?php
-                                }
-                              ?>                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </div>                 
-
-                <?php  
-                  $queryCanten = mysqli_query($koneksi, "SELECT * FROM cafetaria ORDER BY id_cafet DESC") or die (mysqli_error());
-                ?>
-
-                <div class="toko">
-                  <br /><br /><br /><br />
-                  <h3 class="fw-bold m-0">Canteen</h3>
-                  <br /><br />
-                  <div class="kantin row gap-4 mx-auto">
-                    <!-- Rumah Makan 1 -->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Img</th>
+                      <th scope="col">Menu</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Acions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
                     <?php 
-                      while ($fetchCanten = mysqli_fetch_array($queryCanten))
-                      {
+                      // $queryF = mysqli_query($koneksi, "SELECT * FROM favorite WHERE id_user='$id_user'");
+                      $sql = "SELECT favorite.id AS id, users.id AS id_user, menu.id_menu AS id_menu, menu.nama_menu AS nama, menu.img_menu AS img, menu.price_menu AS price 
+                              FROM ((favorite
+                                INNER JOIN users ON favorite.id_user = users.id)
+                                INNER JOIN menu ON favorite.id_menu = menu.id_menu) 
+                              WHERE favorite.id_user = '$id_user'";
+
+                      $queryF = mysqli_query($koneksi, $sql);
+
+                      while ($fetchF = mysqli_fetch_array($queryF)) {
+
                     ?>
-                    <div class="card p-0" style="width: 15rem; height: 22rem">
-                      <img src="assets/img/Resto1.jpg" class="card-img-top" alt="..." />
-                      <div class="card-body">
-                        <h5 class="card-title fw-bold"><?php echo $fetchCanten['nama_cafet']; ?></h5>
-                        <p class="card-text"><?php echo $fetchCanten['cafet_desc']; ?></p>
-                        <div class="button-click row pt-4 ps-2">
-                          <!-- <a href="Cafetaria_info.php<?php $id=$fetchCanten['id_cafet']; ?>" class="btn btn-click"> -->
-                          <?php 
-                            echo "<a href='Cafetaria_info.php?id_c=$fetchCanten[id_owner]' class='btn btn-click'>";
-                          ?>
-                            Lihat <span><i class="fas fa-angle-right" style="width: 32"></i></span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <?php 
-                      }
-                    ?>
-                  </div>
-                </div>
+                    <tr>
+                      <th scope="row"><img src="img/<?php echo $fetchF['img']; ?>" style="width: 30%; height: 30%;"></th>
+                      <td><?php echo $fetchF['nama']; ?></td>
+                      <td><?php echo $fetchF['price']; ?></td>
+                      <td>
+                        <!-- <a href="functions/add/add_checkout.php">ADD TO CHECKOUT</a> -->
+                        <form method="get" action="functions/add/add_process.php">
+                          <input type="hidden" name="id_user" value="<?php echo $fetchF['id_user']; ?>">
+                          <input type="hidden" name="id_menu" value="<?php echo $fetchF['id_menu']; ?>">
+                          <input type="submit" class="btn btn-primary mb-2" name="submitCheckout" value="ADD TO CHECKOUT">
+                        </form>
+                      </td>
+                    </tr>
+                  <?php } ?>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -309,41 +243,5 @@
         }
       }
     </script>
-
-
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/slider.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script> -->
-    <!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> -->
-    
-    <!-- <script type="module">
-      var swiper = new Swiper(".swiper-container", {
-        slidesPerView: 4,
-        spacebetween: 100,
-        loop: true,
-        navigation: {
-          nextEl: ".swiper-button-next-unique",
-          prevEl: ".swiper-button-prev-unique",
-        },
-      });
-    </script>
-    <script>
-      function toggle1(id) {
-        var x = document.getElementById(id);
-        if (x.style.color === "red") {
-          x.style.color = "grey";
-        } else {
-          x.style.color = "red";
-        }
-      }
-    </script> -->
   </body>
 </html>
