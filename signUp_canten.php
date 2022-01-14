@@ -1,3 +1,8 @@
+<?php
+  include "config.php";
+  session_start();
+  $_SESSION['status'] = "logout";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,9 +13,10 @@
     <link rel="stylesheet" href="css/style3.css" />
     <title>My Canteen</title>
   </head>
+
   <body style="background-color: #f87b7b38">
     <!-- Main Content -->
-    <div class="container-fluid">
+    <div class="container-fluid mx-auto">
       <div class="row main-content bg-warning text-center">
         <div class="col-md-4 text-center company__info" style="background-color: crimson">
           <span class="company__logo"
@@ -21,33 +27,44 @@
         <div class="col-md-8 col-xs-12 col-sm-12 login_form">
           <div class="container-fluid">
             <div class="row pt-2">
-              <h2>Log In</h2>
+              <h2>Register As Canteen Owner</h2>
             </div>
             <div class="row">
-              <form control="" class="form-group" action="MainMenu.html">
-                <div class="row">
+              
+              <form method="post" class="form-group" action="functions/signup_process.php">
+                <div class="row signup-item">
+                  <input type="text" name="FullName" id="FullName" class="form__input" placeholder="Full Name" />
+                </div>
+                <div class="row signup-item">
+                  <input type="text" name="Email" id="Email" class="form__input" placeholder="Email" />
+                </div>
+                <div class="row signup-item">
+                  <input type="text" name="PhoneAddress" id="PhoneAddress" class="form__input" placeholder="Phone Address" />
+                </div>
+                <div class="row signup-item">
                   <input type="text" name="username" id="username" class="form__input" placeholder="Username" />
                 </div>
-                <div class="row">
+                <div class="row signup-item">
                   <!-- <span class="fa fa-lock"></span> -->
                   <input type="password" name="password" id="password" class="form__input" placeholder="Password" />
                 </div>
+                <div class="row signup-item">
+                  <!-- <span class="fa fa-lock"></span> -->
+                  <input type="password" name="confirm_password" id="password" class="form__input" placeholder="Confirm Password" />
+                </div>
                 <center>
                   <div class="login d-flex flex-column justify-content-center">
-                    <div class="d-flex align-items-center">
-                      <input type="checkbox" name="remember_me" id="remember_me" class="" />
-                      <label for="remember_me" class="ps-2">Remember Me!</label>
-                    </div>
                     <div class="row justify-content-center">
-                      <input type="submit" value="Login Me" class="btn" onclick="window.location.href='MainMenu.html'" />
+                      <input type="submit" value="Register" name="registerOwner" class="btn" />
                     </div>
                   </div>
                 </center>
               </form>
+
             </div>
 
             <div class="row">
-              <p>Don't have an account? <a href="signUp.html">Register Here</a></p>
+              <p>already have an account? <a href="login_canten.php">Login</a></p>
             </div>
             <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
               <div class="border-bottom w-100 ml-5"></div>
@@ -89,6 +106,7 @@
         </div>
       </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
