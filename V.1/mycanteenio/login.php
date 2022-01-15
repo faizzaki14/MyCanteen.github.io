@@ -1,3 +1,8 @@
+<?php
+  include "config.php";
+  session_start();
+  $_SESSION['status'] = "logout";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,51 +15,67 @@
   </head>
 
   <body style="background-color: #f87b7b38">
+
+    <!-- Pesan Login -->
+    <?php
+      // if(isset($_GET['pesan'])){
+      //   if($_GET['pesan'] == "gagal"){
+      //     echo "<script>alert('Invalid Email or Password')</script>";
+      //   }else if($_GET['pesan'] == "logout"){
+      //     echo "<script>alert('Anda telah berhasil logout')</script>";
+      //   }else if($_GET['pesan'] == "belum_login"){
+      //     echo "<script>alert('Anda harus login untuk mengakses halaman admin')</script>";
+      //   } 
+      // } 
+      // header("?pesan=nol")
+    ?>
+
     <!-- Main Content -->
-    <div class="container-fluid mx-auto">
+    <div class="container-fluid">
+
       <div class="row main-content bg-warning text-center">
+        
         <div class="col-md-4 text-center company__info" style="background-color: crimson">
           <span class="company__logo"
             ><h2><span class="fa fa-android"></span></h2
           ></span>
           <h4 class="company_title">My Canteen</h4>
         </div>
+
         <div class="col-md-8 col-xs-12 col-sm-12 login_form">
           <div class="container-fluid">
             <div class="row pt-2">
-              <h2>Register</h2>
+              <h2>Log In</h2>
             </div>
             <div class="row">
-              <form control="" class="form-group">
-                <div class="row signup-item">
-                  <input type="text" name="FullName" id="FullName" class="form__input" placeholder="Full Name" />
-                </div>
-                <div class="row signup-item">
-                  <input type="text" name="Email" id="Email" class="form__input" placeholder="Email" />
-                </div>
-                <div class="row signup-item">
-                  <input type="text" name="PhoneAddress" id="PhoneAddress" class="form__input" placeholder="Phone Address" />
-                </div>
-                <div class="row signup-item">
+
+              <form method="post" class="form-group" action="functions/login_check.php">
+                <div class="row">
                   <input type="text" name="username" id="username" class="form__input" placeholder="Username" />
                 </div>
-
-                <div class="row signup-item">
+                <div class="row">
                   <!-- <span class="fa fa-lock"></span> -->
                   <input type="password" name="password" id="password" class="form__input" placeholder="Password" />
                 </div>
                 <center>
                   <div class="login d-flex flex-column justify-content-center">
+                    <div class="d-flex align-items-center">
+                      <input type="checkbox" name="remember_me" id="remember_me" class="" />
+                      <label for="remember_me" class="ps-2">Remember Me!</label>
+                    </div>
                     <div class="row justify-content-center">
-                      <input type="submit" value="Register" class="btn" />
+                      <!-- <input type="submit" value="Login Me" class="btn" onclick="window.location.href='MainMenu.html'" /> -->
+                      <input type="submit" name="submit_login_user" value="Login" class="btn"/>
                     </div>
                   </div>
                 </center>
               </form>
+              
             </div>
 
             <div class="row">
-              <p>already have an account? <a href="index.html">Login</a></p>
+              <p class="h5">Don't have an account? <a href="owner/signUp.php">Register Here</a></p>
+              <p class="h4">Canteen Owner?  <a href="owner/login_canten.php">CLick Here</a></p>
             </div>
             <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
               <div class="border-bottom w-100 ml-5"></div>
@@ -94,9 +115,10 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
+      </div>
+
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
