@@ -14,11 +14,12 @@
   } else {
     $user = $_SESSION['username'];
 
-    $pick=mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$user'");
-
+    $pick=mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$user'");    
     $fetch=mysqli_fetch_array($pick);
-
     $id_owner = $fetch['id'];
+
+    //$pick2=mysqli_query($koneksi, "SELECT * FROM cafetaria WHERE id_owner = '$id_owner'");
+    $check=mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM cafetaria WHERE id_owner = '$id_owner'"));
 
   }
 
@@ -100,7 +101,7 @@
               <div class="row">
                 <h3 class="fw-bold mt-2 mb-2" style="width: 50%;">Add Menu</h3>
                 <div class="col-lg-12 col-sm-12 col-md-3 mt-2 mb-2 p-2 border" id="owned_canten">
-                  <form action="../functions/add_process.php" method="post" enctype="multipart/form-data" class="form-group">
+                  <form action="../functions/add/add_process.php" method="post" enctype="multipart/form-data" class="form-group">
                     <input type="hidden" name="id_owner" value="<?php echo $fetch['id']; ?>">
                     <div class="form-group mb-3">
                       <label for="menuName">Menu Name</label>

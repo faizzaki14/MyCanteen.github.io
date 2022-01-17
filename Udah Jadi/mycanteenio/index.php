@@ -216,12 +216,12 @@
                                               <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
                                               <span class="text-end"><i class="bi bi-cart-plus"></i></span>
                                             </a> -->
-                                            <form method="get" action="functions/add/add_process.php">
+                                            <form method="post" action="functions/add/add_process.php">
                                               <input type="hidden" name="id_user" value="<?php echo $fetch['id']; ?>">
                                               <input type="hidden" name="id_menu" value="<?php echo $fetchMenu['id_menu']; ?>">
                                               <input type="hidden" name="price" value="<?php echo $fetchMenu['price_menu']; ?>">
                                               <input type="submit" class="btn btn-primary mb-2" name="submitCheckout" value="ADD TO CHECKOUT">
-                                              <span class="text-end"><i class="bi bi-cart-plus"></i></span>
+                                              <!-- <span class="text-end"><i class="bi bi-cart-plus"></i></span> -->
                                             </form>
                                           </div>
                                         </form>

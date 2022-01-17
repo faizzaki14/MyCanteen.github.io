@@ -193,7 +193,7 @@
                           <?php  //echo "<td><a onClick=\"javascript: return confirm('Please confirm deletion');\" href='../functions/delete_menu_process.php?id_c=".$fetchCanten['id_menu']."' class='btn btn-danger'>Delete</a></td><tr>"; //use double quotes for js inside php!  ?>
                         </div>
                       </form>
-                      <form action="../functions/delete/(x)delete_menu_process.php" method="post">
+                      <form action="../functions/delete/delete_process.php" method="post">
                         <div class="button-click row pt-3 ps-2">
                           <input type="hidden" name="id_menu" value="<?php echo $fetchMenu['id_menu']; ?>">
                           <input type="submit" class="btn btn-danger mb-2" name="deleteMenu" value="Delete">

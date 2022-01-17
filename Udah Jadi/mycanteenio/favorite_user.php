@@ -196,7 +196,7 @@
                       <td><?php echo $fetchF['price']; ?></td>
                       <td>
                         <!-- <a href="functions/add/add_checkout.php">ADD TO CHECKOUT</a> -->
-                        <form method="get" action="functions/add/add_process.php">
+                        <form method="post" action="functions/add/add_process.php">
                           <input type="hidden" name="id_user" value="<?php echo $fetchF['id_user']; ?>">
                           <input type="hidden" name="id_menu" value="<?php echo $fetchF['id_menu']; ?>">
                           <input type="hidden" name="price" value="<?php echo $fetchF['price']; ?>">

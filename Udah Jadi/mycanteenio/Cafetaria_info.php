@@ -169,23 +169,31 @@
                             </h5>
                           </div>
                           <div class="col-2 text-end">
-                            <button id="btns1" class="btnfav" onclick="toggle1('btns1')"><i class="bi bi-heart-fill"></i></button>
+                            <!-- <button id="btns1" class="btnfav" onclick="toggle1('btns1')"><i class="bi bi-heart-fill"></i></button> -->
+                            <a href="functions/add/add_favorite.php?id_m=<?php echo $fetchF['id_menu'];?>" id="btns6" class="btnfav"><i class="bi bi-heart-fill"></i></a>
                           </div>
                         </div>
                         <p class="card-text pt-2"><?php echo $fetchF['desc_menu']; ?></p>
                         <div class="formcheck">
                           <form action="">
                             <div class="form-group">
-                              <div class="jumlhproduk row">
+                              <!-- <div class="jumlhproduk row">
                                 <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
                                 <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
-                              </div>
+                              </div> -->
                             </div>
+                            <form method="post" action="functions/add/add_process.php">
+                                  <input type="hidden" name="id_user" value="<?php echo $fetch['id']; ?>">
+                                  <input type="hidden" name="id_menu" value="<?php echo $fetchF['id_menu']; ?>">
+                                  <input type="hidden" name="price" value="<?php echo $fetchF['price_menu']; ?>">
+                                  <input type="submit" class="btn btn-primary mb-2" name="submitCheckout" value="ADD TO CHECKOUT">
+                                </form>
                             <div class="button-click row pt-3 ps-2">
-                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
+                              <!-- <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
                                 <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
                                 <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                              ></a>
+                              ></a> -->
+                              
                             </div>
                           </form>
                         </div>
@@ -488,132 +496,34 @@
                             </h5>
                           </div>
                           <div class="col-2 text-end">
-                            <button id="btns10" class="btnfav" onclick="toggle1('btns10')"><i class="bi bi-heart-fill"></i></button>
+                            <!-- <button id="btns10" class="btnfav" onclick="toggle1('btns10')"><i class="bi bi-heart-fill"></i></button> -->
+                            <a href="functions/add/add_favorite.php?id_m=<?php echo $fetchD['id_menu'];?>" id="btns6" class="btnfav"><i class="bi bi-heart-fill"></i></a>
                           </div>
                         </div>
                         <p class="card-text pt-2"><?php echo $fetchD['desc_menu']; ?></p>
                         <div class="formcheck">
                           <form action="">
                             <div class="form-group">
-                              <div class="jumlhproduk row">
+                              <!-- <div class="jumlhproduk row">
                                 <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
                                 <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
-                              </div>
+                              </div> -->
                             </div>
                             <div class="button-click row pt-3 ps-2">
-                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                              ></a>
+                              <!-- <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center"> -->
+                                <form method="post" action="functions/add/add_process.php">
+                                  <input type="hidden" name="id_user" value="<?php echo $fetch['id']; ?>">
+                                  <input type="hidden" name="id_menu" value="<?php echo $fetchD['id_menu']; ?>">
+                                  <input type="hidden" name="price" value="<?php echo $fetchD['price_menu']; ?>">
+                                  <input type="submit" class="btn btn-primary mb-2" name="submitCheckout" value="ADD TO CHECKOUT">
+                                </form>
                             </div>
                           </form>
                         </div>
                       </div>
                     </div>
                     <?php } ?>
-                    <!-- Menu Minuman 1 akhir -->
-                    <!-- Menu Minuman 2 -->
-                    <!-- <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/jus jeruk.jpg" class="card-img-top" alt="..." />
-                      <div class="card-body">
-                        <div class="judulmenu d-flex">
-                          <div class="col-10 text-start">
-                            <h5 class="card-title fw-bold">
-                              Jus Jeruk <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
-                            </h5>
-                          </div>
-                          <div class="col-2 text-end">
-                            <button id="btns11" class="btnfav" onclick="toggle1('btns11')"><i class="bi bi-heart-fill"></i></button>
-                          </div>
-                        </div>
-                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="formcheck">
-                          <form action="">
-                            <div class="form-group">
-                              <div class="jumlhproduk row">
-                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
-                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
-                              </div>
-                            </div>
-                            <div class="button-click row pt-3 ps-2">
-                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                              ></a>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div> -->
-                    <!-- Menu Minuman 2 akhir -->
-                    <!-- Menu Minuman 3 -->
-                    <!-- <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/milkshake coklat.jpg" class="card-img-top" alt="..." />
-                      <div class="card-body">
-                        <div class="judulmenu d-flex">
-                          <div class="col-10 text-start">
-                            <h5 class="card-title fw-bold">
-                              Milkshake Coklat <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
-                            </h5>
-                          </div>
-                          <div class="col-2 text-end">
-                            <button id="btns12" class="btnfav" onclick="toggle1('btns12')"><i class="bi bi-heart-fill"></i></button>
-                          </div>
-                        </div>
-                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="formcheck">
-                          <form action="">
-                            <div class="form-group">
-                              <div class="jumlhproduk row">
-                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
-                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
-                              </div>
-                            </div>
-                            <div class="button-click row pt-3 ps-2">
-                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                              ></a>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div> -->
-                    <!-- Menu Minuman 3 akhir -->
-                    <!-- Menu Minuman 4 -->
-                    <!-- <div class="card p-0" style="width: 15rem">
-                      <img src="assets/img/milkshake vanila.jpg" class="card-img-top" alt="..." />
-                      <div class="card-body">
-                        <div class="judulmenu d-flex">
-                          <div class="col-10 text-start">
-                            <h5 class="card-title fw-bold">
-                              Milkshake Vanilla <span style="font-size: small; color: gray"><p class="pt-2 m-0">Rp 15.000</p></span>
-                            </h5>
-                          </div>
-                          <div class="col-2 text-end">
-                            <button id="btns13" class="btnfav" onclick="toggle1('btns13')"><i class="bi bi-heart-fill"></i></button>
-                          </div>
-                        </div>
-                        <p class="card-text pt-2">Menyediakan makanan khas padang dan minuman.</p>
-                        <div class="formcheck">
-                          <form action="">
-                            <div class="form-group">
-                              <div class="jumlhproduk row">
-                                <div class="col"><label for="exampleFormControlSelect1" class="fw-bold">Pilih jumlah</label></div>
-                                <div class="col text-end"><input type="number" min="1" max="100 " style="width: 70%; padding: 1%; text-align: center; border-radius: 12px; border: 2px solid grey; font-weight: bold" /></div>
-                              </div>
-                            </div>
-                            <div class="button-click row pt-3 ps-2">
-                              <a href="Cafetaria1.html" class="btn btn-click d-flex align-content-center">
-                                <div class="col"><p style="font-size: 0.8em" class="text-start">Pesan</p></div>
-                                <span class="text-end"><i class="bi bi-cart-plus"></i></span
-                              ></a>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div> -->
-                    <!-- Menu Minuman 4 akhir -->
+                    
                   </div>
                 </div>
                 <!-- akhir Minuman -->

@@ -77,7 +77,7 @@ session_start();
 			//rename the image file
 			$imgnewfile = md5($imgfile).time().$extension;
 			// Code for move image into directory
-			move_uploaded_file($_FILES["menuPic"]["tmp_name"],"../img/".$imgnewfile);
+			move_uploaded_file($_FILES["menuPic"]["tmp_name"],"../../img/".$imgnewfile);
 
 			$query = "INSERT INTO menu (nama_menu, desc_menu, img_menu, price_menu, id_canteen, type) VALUE ('$nama', '$desc', '$imgnewfile', '$price', '$idOwn', '$type')";
 		
@@ -85,12 +85,12 @@ session_start();
 
 			if ($stat > 0) {
 
-				echo "<script>alert('Menu Is Already Exist');document.location='../owner/add_canten.php'</script>";
+				echo "<script>alert('Menu Is Already Exist');document.location='../../owner/add_canten.php'</script>";
 
 			} else {	
 
 				mysqli_query($koneksi, $query);
-				echo "<script>alert('Menu Data Successfully Added');document.location='../owner/index_owner.php'</script>";
+				echo "<script>alert('Menu Data Successfully Added');document.location='../../owner/index_owner.php'</script>";
 
 			}
 		}
@@ -109,11 +109,11 @@ session_start();
 
 
 
-	if (isset($_GET['submitCheckout'])) {
+	if (isset($_POST['submitCheckout'])) {
 
-		$id = $_GET['id_user'];
-		$id_menu = $_GET['id_menu'];
-		$price = $_GET['price'];
+		$id = $_POST['id_user'];
+		$id_menu = $_POST['id_menu'];
+		$price = $_POST['price'];
 		
 
 		//x $query=mysqli_query($koneksi, "INSERT INTO checkout (id_menu, id_user, total, status) VALUES ('$id_menu', '$id', '$total', 'view')");
@@ -130,7 +130,7 @@ session_start();
 
 		} else {
 
-			echo "<script>alert('Menu Added to Checkout FAILED');document.location='../../index.php'</script>";
+			echo "<script>alert('Failed TO Add Menu To Checkout');document.location='../../index.php'</script>";
 
 		}
 
