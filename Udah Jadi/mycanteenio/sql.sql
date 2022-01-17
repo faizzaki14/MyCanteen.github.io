@@ -42,9 +42,9 @@ CREATE TABLE IF NOT EXISTS `checkout` (
   `id_user` int(100) NOT NULL,
   `status` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COMMENT='row status: view and finished. If finished, to table transaction';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='row status: view and finished. If finished, to table transaction';
 
--- Dumping data for table my_canteen.checkout: ~2 rows (approximately)
+-- Dumping data for table my_canteen.checkout: ~0 rows (approximately)
 /*!40000 ALTER TABLE `checkout` DISABLE KEYS */;
 /*!40000 ALTER TABLE `checkout` ENABLE KEYS */;
 
@@ -56,14 +56,13 @@ CREATE TABLE IF NOT EXISTS `favorite` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table my_canteen.favorite: ~5 rows (approximately)
+-- Dumping data for table my_canteen.favorite: ~4 rows (approximately)
 /*!40000 ALTER TABLE `favorite` DISABLE KEYS */;
 INSERT INTO `favorite` (`id`, `id_menu`, `id_user`) VALUES
 	(1, 1, 2),
 	(3, 3, 2),
 	(4, 5, 2),
 	(5, 9, 2),
-	(6, 10, 2),
 	(7, 4, 2);
 /*!40000 ALTER TABLE `favorite` ENABLE KEYS */;
 
@@ -79,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   PRIMARY KEY (`id_menu`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table my_canteen.menu: ~8 rows (approximately)
+-- Dumping data for table my_canteen.menu: ~9 rows (approximately)
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 INSERT INTO `menu` (`id_menu`, `nama_menu`, `desc_menu`, `img_menu`, `price_menu`, `type`, `id_canteen`) VALUES
 	(1, 'Es Jeruk', 'deeeeefffffff', 'd41d8cd98f00b204e9800998ecf8427e1642167676.jpg', '2500', 'drinks', 3),
@@ -114,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `transaction_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table my_canteen.transaction_log: ~0 rows (approximately)
+-- Dumping data for table my_canteen.transaction_log: ~2 rows (approximately)
 /*!40000 ALTER TABLE `transaction_log` DISABLE KEYS */;
 INSERT INTO `transaction_log` (`id`, `id_user`, `total`, `finished_at`) VALUES
 	(1, 2, '19500', '2022-01-15 20:17:24'),
